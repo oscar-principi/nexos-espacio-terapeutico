@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Heart, Users, Sparkles, Shield, ChevronDown, LucideIcon } from 'lucide-react'
+import { ArrowRight, Heart, Users, Sparkles, Shield, ChevronDown } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
+import logoNexos from '../assets/images/logo-nexos.png'
 
 interface Service {
   icon: LucideIcon
@@ -15,22 +17,6 @@ interface DotDecoration {
   right?: string
   color: string
   size: number
-}
-
-interface SatelliteNode {
-  top?: string
-  bottom?: string
-  left?: string
-  right?: string
-  color: string
-  borderColor: string
-}
-
-interface LineProps {
-  x1: string
-  y1: string
-  x2: string
-  y2: string
 }
 
 const SERVICES: Service[] = [
@@ -66,20 +52,6 @@ const DOTS: DotDecoration[] = [
   { top: '55%', left: '48%', color: '#F5C842', size: 22 },
   { top: '72%', right: '22%', color: '#B07CC6', size: 16 },
   { top: '68%', left: '60%', color: '#4A7BC4', size: 12 },
-]
-
-const SATELLITE_NODES: SatelliteNode[] = [
-  { top: '5%', left: '42%', color: '#E8525A', borderColor: '#4DC9B0' },
-  { top: '40%', right: '0%', color: '#2E9E7A', borderColor: '#4DC9B0' },
-  { bottom: '8%', left: '38%', color: '#B07CC6', borderColor: '#4DC9B0' },
-  { bottom: '30%', left: '2%', color: '#4A7BC4', borderColor: '#4DC9B0' },
-]
-
-const LINES: LineProps[] = [
-  { x1: '160', y1: '160', x2: '160', y2: '38' },
-  { x1: '160', y1: '160', x2: '306', y2: '148' },
-  { x1: '160', y1: '160', x2: '158', y2: '288' },
-  { x1: '160', y1: '160', x2: '28', y2: '210' },
 ]
 
 const STATS: { n: string; label: string }[] = [
@@ -193,55 +165,11 @@ export default function Home() {
 
           {/* Logo visual */}
           <div className="hidden md:flex justify-center items-center">
-            <div style={{ position: 'relative', width: 320, height: 320 }}>
-              <div
-                style={{
-                  position: 'absolute',
-                  top: '50%',
-                  left: '50%',
-                  transform: 'translate(-50%,-50%)',
-                  width: 90,
-                  height: 90,
-                  borderRadius: '50%',
-                  border: '4px solid #4DC9B0',
-                  backgroundColor: 'rgba(77,201,176,0.1)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                <div style={{ width: 44, height: 44, borderRadius: '50%', backgroundColor: '#F5C842' }} />
-              </div>
-
-              {SATELLITE_NODES.map((n, i) => (
-                <div
-                  key={i}
-                  style={{
-                    position: 'absolute',
-                    top: n.top,
-                    bottom: n.bottom,
-                    left: n.left,
-                    right: n.right,
-                    width: 52,
-                    height: 52,
-                    borderRadius: '50%',
-                    border: `3px solid ${n.borderColor}`,
-                    backgroundColor: 'rgba(255,255,255,0.8)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <div style={{ width: 22, height: 22, borderRadius: '50%', backgroundColor: n.color }} />
-                </div>
-              ))}
-
-              <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}>
-                {LINES.map((l, i) => (
-                  <line key={i} {...l} stroke="#4DC9B0" strokeWidth="2" opacity="0.4" />
-                ))}
-              </svg>
-            </div>
+            <img
+              src={logoNexos}
+              alt="Logo Nexos"
+              className="w-[560px] lg:w-[640px] h-auto drop-shadow-xl"
+            />
           </div>
         </div>
 

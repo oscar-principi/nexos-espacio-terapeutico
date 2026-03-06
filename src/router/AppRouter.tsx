@@ -8,7 +8,7 @@ import Contacto from '../pages/Contacto'
 
 export default function AppRouter() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Navbar />
       <main>
         <Routes>
