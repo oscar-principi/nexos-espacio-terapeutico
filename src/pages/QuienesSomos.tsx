@@ -26,21 +26,21 @@ const TEAM: TeamMember[] = [
     role: 'Psicóloga · MN 12345',
     specialty: 'Terapia Cognitivo-Conductual · Adultos',
     color: '#E8525A',
-    initial: 'L',
+    initial: 'N',
   },
   {
     name: 'Nombre 2',
     role: 'Psicóloga · MN 12345',
     specialty: 'Terapia Sistémica · Parejas y Familias',
     color: '#4DC9B0',
-    initial: 'M',
+    initial: 'V',
   },
   {
     name: 'Nombre 3',
     role: 'Psicóloga · MN 12345',
     specialty: 'Orientación Vocacional · Adolescentes',
     color: '#B07CC6',
-    initial: 'S',
+    initial: 'L',
   },
 ]
 
