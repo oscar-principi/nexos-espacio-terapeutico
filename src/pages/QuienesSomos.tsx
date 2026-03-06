@@ -22,22 +22,22 @@ interface Stat {
 
 const TEAM: TeamMember[] = [
   {
-    name: 'Dra. Laura Méndez',
-    role: 'Psicóloga Clínica · MN 12345',
+    name: 'Nombre 1',
+    role: 'Psicóloga · MN 12345',
     specialty: 'Terapia Cognitivo-Conductual · Adultos',
     color: '#E8525A',
     initial: 'L',
   },
   {
-    name: 'Lic. Martín Torres',
-    role: 'Psicólogo · MN 67890',
+    name: 'Nombre 2',
+    role: 'Psicóloga · MN 12345',
     specialty: 'Terapia Sistémica · Parejas y Familias',
     color: '#4DC9B0',
     initial: 'M',
   },
   {
-    name: 'Lic. Sofía Rivas',
-    role: 'Psicóloga · MN 54321',
+    name: 'Nombre 3',
+    role: 'Psicóloga · MN 12345',
     specialty: 'Orientación Vocacional · Adolescentes',
     color: '#B07CC6',
     initial: 'S',

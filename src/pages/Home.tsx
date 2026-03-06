@@ -138,7 +138,15 @@ export default function Home() {
               <br />
               <span style={{ color: '#4DC9B0', fontWeight: 600 }}>conectarte</span>
               <br />
-              con vos mismo
+              con vos{' '}
+              <span className="inline-flex items-end gap-4">
+                mismo
+                <img
+                  src={logoNexos}
+                  alt="Logo Nexos"
+                  className="md:hidden w-10 h-auto mobile-logo-motion"
+                />
+              </span>
             </h1>
 
             <p style={{ color: '#7a8f9e' }} className="text-lg leading-relaxed mb-8 max-w-md">
@@ -168,7 +176,7 @@ export default function Home() {
             <img
               src={logoNexos}
               alt="Logo Nexos"
-              className="w-560px lg:w-640px h-auto drop-shadow-xl"
+              className="w-[360px] lg:w-[440px] h-auto drop-shadow-xl transition-transform duration-1000 ease-in-out hover:rotate-[360deg]"
             />
           </div>
         </div>
