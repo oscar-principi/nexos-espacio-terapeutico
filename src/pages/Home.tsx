@@ -168,7 +168,7 @@ export default function Home() {
             <img
               src={logoNexos}
               alt="Logo Nexos"
-              className="w-[560px] lg:w-[640px] h-auto drop-shadow-xl"
+              className="w-560px lg:w-640px h-auto drop-shadow-xl"
             />
           </div>
         </div>
