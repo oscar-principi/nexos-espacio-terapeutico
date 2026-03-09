@@ -28,7 +28,7 @@ const FAQS: FAQ[] = [
   {
     category: 'consultas',
     question: '¿Cuánto dura una sesión?',
-    answer:
+    answer: 
       'Cada sesión tiene una duración de 45 minutos. Este tiempo está cuidadosamente pensado para crear un espacio de escucha profunda y trabajo terapéutico, sin apresuramientos. La regularidad y el encuadre son parte fundamental del proceso: saber con qué tiempo contás te permite llegar, abrirte y trabajar con mayor confianza.',
   },
   {
@@ -53,7 +53,7 @@ const FAQS: FAQ[] = [
     category: 'terapia',
     question: '¿Atienden todas las edades?',
     answer:
-      'Sí. Contamos con profesionales especializadas en psicología infantil, adolescentcia y adultos. ',
+      'Sí. Contamos con 8 profesionales especializadas en psicología infantil, adolescencia y adultos. ',
   },
   {
     category: 'practica',

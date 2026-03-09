@@ -88,7 +88,7 @@ const VALUES: Value[] = [
 
 const STATS: Stat[] = [
   { n: '+500', label: 'Pacientes acompañados' },
-  { n: '3', label: 'Profesionales' },
+  { n: '8', label: 'Profesionales' },
   { n: '10+', label: 'Años de experiencia' },
 ]
 
@@ -119,7 +119,7 @@ export default function QuienesSomos() {
           <p style={{ color: '#7a8f9e' }} className="text-lg max-w-2xl mx-auto leading-relaxed">
             En Nexos espacio Terapéutico brindamos un espacio clínico de escucha profesional, reflexión y acompañamiento terapéutico
 
-            Nuestro equipo está conformado por profesionales comprometidos con una práctica ética y respetuosa de la singularidad de cada persona.
+            Nuestro equipo está conformado por 8 profesionales comprometidos con una práctica ética y respetuosa de la singularidad de cada persona.
 
             Trabajamos promoviendo procesos que permitan elaborar el malestar, fortalecer recursos personales y favorecer cambios que mejoren la calidad de vida.
           </p>
@@ -167,7 +167,7 @@ export default function QuienesSomos() {
               Nuestra historia
             </h2>
             <p style={{ color: '#7a8f9e' }} className="leading-relaxed mb-4">
-              Nexos Espacio Terapéutico surgió en 2014 como un proyecto colaborativo entre profesionales de la salud mental que compartían una misma visión: crear un espacio donde cada persona se sintiera comprendida, acompañada y capaz de transformar su realidad.
+              Nexos Espacio Terapéutico surgió en 2014 como un proyecto colaborativo entre 8 profesionales de la salud mental que compartían una misma visión: crear un espacio donde cada persona se sintiera comprendida, acompañada y capaz de transformar su realidad.
             </p>
             <p style={{ color: '#7a8f9e' }} className="leading-relaxed mb-6">
               Con el tiempo fuimos creciendo, incorporando nuevas miradas y especialidades, siempre con la calidez humana como eje central de nuestra práctica.
