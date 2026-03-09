@@ -29,7 +29,7 @@ export default function WhatsappButton() {
         }}
         className="text-white text-sm font-medium px-4 py-2 rounded-full shadow-lg whitespace-nowrap"
       >
-        Pedí tu turno 💬
+        Solicita tu turno 💬
       </span>
 
       {/* Button */}
