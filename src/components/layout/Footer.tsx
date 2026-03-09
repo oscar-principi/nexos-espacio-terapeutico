@@ -24,7 +24,6 @@ const contactItems: ContactItem[] = [
   { icon: Mail, color: '#4DC9B0', value: 'espacionexos@gmail.com' },
   { icon: Instagram, color: '#4DC9B0', value: '@nexosespacioterapeutico' },
   { icon: MapPin, color: '#4DC9B0', value: 'Belén de Escobar: Cesar Diaz 1118, depto 1' },
-  { icon: MapPin, color: '#4DC9B0', value: 'Ing. Maschwitz: Cordoba 945, depto 5' },
 ]
 
 export default function Footer() {

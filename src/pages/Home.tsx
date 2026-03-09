@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Heart, Users, Sparkles, Shield, ChevronDown } from 'lucide-react'
+import { ArrowRight, Heart, Users, Sparkles, Shield, Brain, Compass, BookOpen, ChevronDown } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import logoNexos from '../assets/images/logo-nexos.png'
 
@@ -23,26 +23,56 @@ const SERVICES: Service[] = [
   {
     icon: Heart,
     color: '#E8525A',
-    title: 'Psicoterapia Individual',
-    desc: 'Un espacio personal para explorar, comprender y transformar tus emociones y pensamientos.',
+    title: 'Psicoterapia infantil',
+    desc: 'Un espacio seguro y lúdico para acompañar a los más pequeños en su desarrollo emocional.',
   },
   {
     icon: Users,
     color: '#4DC9B0',
-    title: 'Terapia de Pareja',
-    desc: 'Herramientas para fortalecer el vínculo, mejorar la comunicación y crecer juntos.',
+    title: 'Psicoterapia para adolescentes',
+    desc: 'Acompañamiento especializado durante la adolescencia, etapa de cambios y construcción de identidad.',
   },
   {
     icon: Sparkles,
     color: '#F5C842',
-    title: 'Terapia Familiar',
+    title: 'Terapia para adultos',
+    desc: 'Un espacio personal para explorar, comprender y transformar tus emociones y pensamientos.',
+  },
+  {
+    icon: Heart,
+    color: '#E8525A',
+    title: 'Terapia de pareja',
+    desc: 'Herramientas para fortalecer el vínculo, mejorar la comunicación y crecer juntos.',
+  },
+  {
+    icon: Users,
+    color: '#4A7BC4',
+    title: 'Terapia de familia',
     desc: 'Acompañamiento sistémico para familias en procesos de cambio y reestructuración.',
+  },
+  {
+    icon: BookOpen,
+    color: '#2E9E7A',
+    title: 'Orientación a padres',
+    desc: 'Guía y herramientas para fortalecer el rol parental y la crianza consciente.',
   },
   {
     icon: Shield,
     color: '#B07CC6',
-    title: 'Orientación Vocacional',
-    desc: 'Descubrí tus fortalezas y construí un camino auténtico hacia tu futuro.',
+    title: 'Evaluaciones psicológicas',
+    desc: 'Evaluaciones integrales para comprender el perfil cognitivo, emocional y conductual.',
+  },
+  {
+    icon: Compass,
+    color: '#F5A623',
+    title: 'Orientación vocacional',
+    desc: 'Descubrí tus fortalezas y construí un camino auténtico hacia tu futuro profesional.',
+  },
+  {
+    icon: Brain,
+    color: '#4DC9B0',
+    title: 'Estimulación cognitiva',
+    desc: 'Programas personalizados para potenciar las funciones cognitivas en niños y adultos.',
   },
 ]
 
@@ -159,7 +189,7 @@ export default function Home() {
                 style={{ backgroundColor: '#4DC9B0' }}
                 className="inline-flex items-center gap-2 text-white font-semibold px-7 py-3.5 rounded-full hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
               >
-                Pedir turno <ArrowRight size={18} />
+                Solicitar turno <ArrowRight size={18} />
               </Link>
               <Link
                 to="/quienes-somos"
@@ -201,7 +231,8 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* 3-column grid; last row auto-centers via justify-center on the flex fallback */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {SERVICES.map(({ icon: Icon, color, title, desc }) => (
               <div
                 key={title}

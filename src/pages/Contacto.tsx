@@ -25,7 +25,6 @@ const CONTACT_ITEMS: ContactItem[] = [
     href: 'https://www.instagram.com/nexosespacioterapeutico/',
   },
   { icon: MapPin, color: '#2E9E7A', label: 'Ubicación', value: 'Belén de Escobar: Cesar Diaz 1118, depto 1' },
-  { icon: MapPin, color: '#2E9E7A', label: 'Ubicación', value: 'Ing. Maschwitz: Cordoba 945, depto 5' },
   { icon: Clock, color: '#F5C842', label: 'Horarios de atención', value: 'Lun–Vie: 8:00 a 20:00 hs y Sábados' },
 ]
 
@@ -34,11 +33,6 @@ const MAP_LOCATIONS: MapLocation[] = [
     city: 'Belén de Escobar',
     embedUrl: 'https://www.google.com/maps?q=Cesar%20Diaz%201118%2C%20Bel%C3%A9n%20de%20Escobar%2C%20Buenos%20Aires&output=embed',
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Cesar%20Diaz%201118%2C%20Bel%C3%A9n%20de%20Escobar%2C%20Buenos%20Aires',
-  },
-  {
-    city: 'Maschwitz',
-    embedUrl: 'https://www.google.com/maps?q=Cordoba%20945%2C%20Ingeniero%20Maschwitz%2C%20Buenos%20Aires&output=embed',
-    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Cordoba%20945%2C%20Ingeniero%20Maschwitz%2C%20Buenos%20Aires',
   },
 ]
 
@@ -132,7 +126,7 @@ export default function Contacto() {
           <h2 style={{ color: '#5A6B7B' }} className="text-2xl font-semibold text-center mb-8">
             Ubicaciones en Google Maps
           </h2>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-1 gap-6">
             {MAP_LOCATIONS.map(({ city, embedUrl, mapsUrl }) => (
               <article
                 key={city}

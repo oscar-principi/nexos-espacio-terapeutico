@@ -42,6 +42,41 @@ const TEAM: TeamMember[] = [
     color: '#B07CC6',
     initial: 'L',
   },
+  {
+    name: 'Nombre 4',
+    role: 'Psicóloga · MN 12345',
+    specialty: 'Psicología Infantil',
+    color: '#4A7BC4',
+    initial: 'A',
+  },
+  {
+    name: 'Nombre 5',
+    role: 'Psicóloga · MN 12345',
+    specialty: 'Ansiedad y Estrés',
+    color: '#F5C842',
+    initial: 'M',
+  },
+  {
+    name: 'Nombre 6',
+    role: 'Psicóloga · MN 12345',
+    specialty: 'Terapia de Pareja',
+    color: '#E8525A',
+    initial: 'C',
+  },
+  {
+    name: 'Nombre 7',
+    role: 'Psicóloga · MN 12345',
+    specialty: 'Psicoterapia Integrativa',
+    color: '#4DC9B0',
+    initial: 'S',
+  },
+  {
+    name: 'Nombre 8',
+    role: 'Psicóloga · MN 12345',
+    specialty: 'Adolescentes y Jóvenes',
+    color: '#B07CC6',
+    initial: 'P',
+  },
 ]
 
 const VALUES: Value[] = [
@@ -82,7 +117,11 @@ export default function QuienesSomos() {
             <span style={{ color: '#4DC9B0', fontWeight: 600 }}>el cuidado del otro</span>
           </h1>
           <p style={{ color: '#7a8f9e' }} className="text-lg max-w-2xl mx-auto leading-relaxed">
-            Nexos nació de la convicción de que la salud mental es un derecho. Somos un grupo de profesionales comprometidos con brindar acompañamiento terapéutico de calidad, en un ambiente cálido y seguro.
+            En Nexos espacio Terapéutico brindamos un espacio clínico de escucha profesional, reflexión y acompañamiento terapéutico
+
+            Nuestro equipo está conformado por profesionales comprometidos con una práctica ética y respetuosa de la singularidad de cada persona.
+
+            Trabajamos promoviendo procesos que permitan elaborar el malestar, fortalecer recursos personales y favorecer cambios que mejoren la calidad de vida.
           </p>
         </div>
       </section>
@@ -189,7 +228,7 @@ export default function QuienesSomos() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {TEAM.map(({ name, role, specialty, color, initial }) => (
               <div
                 key={name}

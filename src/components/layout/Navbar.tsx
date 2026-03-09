@@ -119,7 +119,7 @@ export default function Navbar() {
             style={{ backgroundColor: '#4DC9B0', fontFamily: "'Nunito', sans-serif" }}
             className="text-white text-center font-semibold px-5 py-3 rounded-full"
           >
-            Pedir Turno
+            Solicitar Turno
           </NavLink>
         </div>
       )}
