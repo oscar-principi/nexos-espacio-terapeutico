@@ -11,6 +11,7 @@ const links: NavItem[] = [
   { to: '/', label: 'Inicio' },
   { to: '/quienes-somos', label: 'Quiénes Somos' },
   { to: '/contacto', label: 'Contacto' },
+  { to: '/preguntas-frecuentes', label: 'Preguntas Frecuentes' }
 ]
 
 export default function Navbar() {
@@ -46,7 +47,7 @@ export default function Navbar() {
           </span>
           <span
             style={{ color: '#4DC9B0', fontFamily: "'Nunito', sans-serif", letterSpacing: '0.25em' }}
-            className="text-[10px] font-light uppercase mt-[-2px]"
+            className="text-[10px] font-light uppercase mt-2px"
           >
             espacio terapéutico
           </span>

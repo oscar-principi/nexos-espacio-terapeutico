@@ -196,7 +196,7 @@ export default function Home() {
                 style={{ color: '#5A6B7B', border: '1.5px solid #c8d6df' }}
                 className="inline-flex items-center gap-2 font-medium px-7 py-3.5 rounded-full hover:border-[#4DC9B0] hover:text-[#4DC9B0] transition-all"
               >
-                Conocernos
+                Conocenos
               </Link>
             </div>
           </div>
@@ -206,7 +206,7 @@ export default function Home() {
             <img
               src={logoNexos}
               alt="Logo Nexos"
-              className="w-[360px] lg:w-[440px] h-auto drop-shadow-xl transition-transform duration-1000 ease-in-out hover:rotate-[360deg]"
+              className="w-360px lg:w-440px h-auto drop-shadow-xl transition-transform duration-1000 ease-in-out hover:rotate-360deg"
             />
           </div>
         </div>

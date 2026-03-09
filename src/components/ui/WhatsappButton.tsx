@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
-const WHATSAPP_PHONE = '5491100000000' // reemplazar con número real
-const WHATSAPP_MESSAGE = encodeURIComponent('Hola! Quisiera pedir un turno en Nexos Espacio Terapéutico.')
+const WHATSAPP_PHONE = '5491140575607' 
+const WHATSAPP_MESSAGE = encodeURIComponent('Hola! Quisiera solicitar un turno en Nexos Espacio Terapéutico.')
 
 export default function WhatsappButton() {
   const [hovered, setHovered] = useState<boolean>(false)

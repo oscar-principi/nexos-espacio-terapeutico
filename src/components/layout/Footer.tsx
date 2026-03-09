@@ -17,6 +17,7 @@ const footerLinks: FooterLink[] = [
   { to: '/', label: 'Inicio' },
   { to: '/quienes-somos', label: 'Quiénes Somos' },
   { to: '/contacto', label: 'Contacto' },
+  { to: '/preguntas-frecuentes', label: 'Preguntas Frecuentes' }
 ]
 
 const contactItems: ContactItem[] = [
