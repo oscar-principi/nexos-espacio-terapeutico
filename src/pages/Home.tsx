@@ -206,7 +206,7 @@ export default function Home() {
             <img
               src={logoNexos}
               alt="Logo Nexos"
-              className="w-360px lg:w-440px h-auto drop-shadow-xl transition-transform duration-1000 ease-in-out hover:rotate-360deg"
+              className="w-360px lg:w-440px h-auto drop-shadow-xl transition-transform duration-1000 ease-in-out hover:rotate-[360deg]"
             />
           </div>
         </div>
