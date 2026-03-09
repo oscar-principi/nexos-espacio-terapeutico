@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
+import logoCompleto from '../../assets/images/logo-completo.jpg'
 
 interface NavItem {
   to: string
@@ -36,21 +37,13 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <NavLink to="/" className="flex flex-col leading-none">
-          <span
-            style={{ color: '#5A6B7B', fontFamily: "'Nunito', sans-serif", letterSpacing: '0.08em' }}
-            className="text-3xl font-light tracking-widest"
-          >
-            nex
-            <span style={{ color: '#4DC9B0' }}>o</span>
-            s
-          </span>
-          <span
-            style={{ color: '#4DC9B0', fontFamily: "'Nunito', sans-serif", letterSpacing: '0.25em' }}
-            className="text-[10px] font-light uppercase mt-2px"
-          >
-            espacio terapéutico
-          </span>
+        <NavLink to="/" className="flex items-center">
+          <img
+            src={logoCompleto}
+            alt="Nexos Espacio Terapéutico"
+            style={{ height: 70 }}
+            className="w-auto object-contain"
+          />
         </NavLink>
 
         {/* Desktop Nav */}

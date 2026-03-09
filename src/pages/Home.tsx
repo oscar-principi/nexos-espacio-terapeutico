@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Heart, Users, Sparkles, Shield, Brain, Compass, BookOpen, ChevronDown } from 'lucide-react'
+import { ArrowRight, Smile, Heart, Users, Sparkles, ClipboardCheck, Brain, Compass, BookOpen, ChevronDown } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import logoNexos from '../assets/images/logo-nexos.png'
 
@@ -21,8 +21,8 @@ interface DotDecoration {
 
 const SERVICES: Service[] = [
   {
-    icon: Heart,
-    color: '#E8525A',
+    icon: Smile,
+    color: '#F5C842',
     title: 'Psicoterapia infantil',
     desc: 'Un espacio seguro y lúdico para acompañar a los más pequeños en su desarrollo emocional.',
   },
@@ -57,7 +57,7 @@ const SERVICES: Service[] = [
     desc: 'Guía y herramientas para fortalecer el rol parental y la crianza consciente.',
   },
   {
-    icon: Shield,
+    icon: ClipboardCheck,
     color: '#B07CC6',
     title: 'Evaluaciones psicológicas',
     desc: 'Evaluaciones integrales para comprender el perfil cognitivo, emocional y conductual.',
