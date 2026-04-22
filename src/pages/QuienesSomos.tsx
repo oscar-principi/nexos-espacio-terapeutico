@@ -189,7 +189,7 @@ export default function QuienesSomos() {
               Las personas detrás de Nexos
             </span>
             <h2 style={{ color: '#5A6B7B' }} className="text-3xl font-light mt-2">
-              Nuestro equipo
+              Socias fundadoras
             </h2>
           </div>
 
