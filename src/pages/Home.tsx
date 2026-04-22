@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Smile, Heart, Users, Sparkles, ClipboardCheck, Brain, Compass, BookOpen, ChevronDown } from 'lucide-react'
+import { ArrowRight, Activity, Smile, Heart, Users, Sparkles, ClipboardCheck, Brain, Compass, BookOpen, ChevronDown } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import logoNexos from '../assets/images/logo-nexos.png'
 
@@ -59,6 +59,18 @@ const SERVICES: Service[] = [
   {
     icon: ClipboardCheck,
     color: '#B07CC6',
+    title: 'Psicopedagogía',
+    desc: 'Abordaje de los procesos de aprendizaje para potenciar las capacidades educativas y cognitivas.',
+  },
+  {
+    icon: Activity, // Podés usar 'Activity' si preferís un pulso médico
+    color: '#E8525A',
+    title: 'Psiquiatría',
+    desc: 'Abordaje médico especializado para la salud mental con un enfoque integral y humano.',
+  },
+  {
+    icon: ClipboardCheck,
+    color: '#B07CC6',
     title: 'Evaluaciones psicológicas',
     desc: 'Evaluaciones integrales para comprender el perfil cognitivo, emocional y conductual.',
   },
@@ -86,7 +98,7 @@ const DOTS: DotDecoration[] = [
 
 const STATS: { n: string; label: string }[] = [
   { n: '+500', label: 'Pacientes acompañados' },
-  { n: '8', label: 'Profesionales' },
+  { n: '3', label: 'Socias fundadoras' },
   { n: '10+', label: 'Años de experiencia' },
 ]
 

@@ -22,60 +22,25 @@ interface Stat {
 
 const TEAM: TeamMember[] = [
   {
-    name: 'Nombre 1',
-    role: 'Psicóloga · MN 12345',
-    specialty: 'Terapia Cognitivo-Conductual · Adultos',
+    name: 'Natalia Maria',
+    role: 'Psicóloga · Socia Fundadora',
+    specialty: 'Especialidad',
     color: '#E8525A',
     initial: 'N',
   },
   {
-    name: 'Nombre 2',
-    role: 'Psicóloga · MN 12345',
-    specialty: 'Terapia Sistémica · Parejas y Familias',
+    name: 'Victoria Perez de San Roman',
+    role: 'Psicóloga · Socia Fundadora',
+    specialty: 'Especialidad',
     color: '#4DC9B0',
     initial: 'V',
   },
   {
-    name: 'Nombre 3',
-    role: 'Psicóloga · MN 12345',
-    specialty: 'Orientación Vocacional · Adolescentes',
+    name: 'Maria Luz Ruiz Campos',
+    role: 'Psicóloga · Socia Fundadora',
+    specialty: 'Especialidad',
     color: '#B07CC6',
-    initial: 'L',
-  },
-  {
-    name: 'Nombre 4',
-    role: 'Psicóloga · MN 12345',
-    specialty: 'Psicología Infantil',
-    color: '#4A7BC4',
-    initial: 'A',
-  },
-  {
-    name: 'Nombre 5',
-    role: 'Psicóloga · MN 12345',
-    specialty: 'Ansiedad y Estrés',
-    color: '#F5C842',
     initial: 'M',
-  },
-  {
-    name: 'Nombre 6',
-    role: 'Psicóloga · MN 12345',
-    specialty: 'Terapia de Pareja',
-    color: '#E8525A',
-    initial: 'C',
-  },
-  {
-    name: 'Nombre 7',
-    role: 'Psicóloga · MN 12345',
-    specialty: 'Psicoterapia Integrativa',
-    color: '#4DC9B0',
-    initial: 'S',
-  },
-  {
-    name: 'Nombre 8',
-    role: 'Psicóloga · MN 12345',
-    specialty: 'Adolescentes y Jóvenes',
-    color: '#B07CC6',
-    initial: 'P',
   },
 ]
 
@@ -88,7 +53,7 @@ const VALUES: Value[] = [
 
 const STATS: Stat[] = [
   { n: '+500', label: 'Pacientes acompañados' },
-  { n: '8', label: 'Profesionales' },
+  { n: '3', label: 'Socias fundadoras' },
   { n: '10+', label: 'Años de experiencia' },
 ]
 
@@ -119,7 +84,7 @@ export default function QuienesSomos() {
           <p style={{ color: '#7a8f9e' }} className="text-lg max-w-2xl mx-auto leading-relaxed">
             En Nexos espacio Terapéutico brindamos un espacio clínico de escucha profesional, reflexión y acompañamiento terapéutico
 
-            Nuestro equipo está conformado por 8 profesionales comprometidos con una práctica ética y respetuosa de la singularidad de cada persona.
+            Nuestro equipo está conformado por profesionales comprometidos con una práctica ética y respetuosa de la singularidad de cada persona.
 
             Trabajamos promoviendo procesos que permitan elaborar el malestar, fortalecer recursos personales y favorecer cambios que mejoren la calidad de vida.
           </p>
@@ -167,7 +132,7 @@ export default function QuienesSomos() {
               Nuestra historia
             </h2>
             <p style={{ color: '#7a8f9e' }} className="leading-relaxed mb-4">
-              Nexos Espacio Terapéutico surgió en 2014 como un proyecto colaborativo entre 8 profesionales de la salud mental que compartían una misma visión: crear un espacio donde cada persona se sintiera comprendida, acompañada y capaz de transformar su realidad.
+              Nexos Espacio Terapéutico surgió en (año) como un proyecto colaborativo entre 3 profesionales de la salud mental que compartían una misma visión: crear un espacio donde cada persona se sintiera comprendida, acompañada y capaz de transformar su realidad.
             </p>
             <p style={{ color: '#7a8f9e' }} className="leading-relaxed mb-6">
               Con el tiempo fuimos creciendo, incorporando nuevas miradas y especialidades, siempre con la calidez humana como eje central de nuestra práctica.
@@ -228,7 +193,7 @@ export default function QuienesSomos() {
             </h2>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {TEAM.map(({ name, role, specialty, color, initial }) => (
               <div
                 key={name}
