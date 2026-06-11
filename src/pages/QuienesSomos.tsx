@@ -24,12 +24,17 @@ interface Stat {
   label: string
 }
 
+// BASE_URL puede venir con o sin barra final según cómo se pase --base en el build
+const BASE = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`
+
 const TEAM: TeamMember[] = [
   {
     name: 'Lic. Natalia Maria',
     role: 'Psicóloga · Socia Fundadora',
     color: '#E8525A',
-    photo: `${import.meta.env.BASE_URL}profesionales/Natalia.jpeg`,
+    photo: `${BASE}profesionales/Natalia.jpeg`,
     zoom: 1.28,
     focus: 'center 40%',
     shift: '0%',
@@ -38,7 +43,7 @@ const TEAM: TeamMember[] = [
     name: 'Lic. Victoria Perez de San Roman',
     role: 'Psicóloga · Socia Fundadora',
     color: '#4DC9B0',
-    photo: `${import.meta.env.BASE_URL}profesionales/Victoria.jpeg?v=2`,
+    photo: `${BASE}profesionales/Victoria.jpeg?v=2`,
     zoom: 1,
     focus: 'center 0%',
     shift: '0%',
@@ -47,7 +52,7 @@ const TEAM: TeamMember[] = [
     name: 'Lic. Maria Luz Ruiz Campos',
     role: 'Psicóloga · Socia Fundadora',
     color: '#B07CC6',
-    photo: `${import.meta.env.BASE_URL}profesionales/Luz.jpeg`,
+    photo: `${BASE}profesionales/Luz.jpeg`,
     zoom: 1.2,
     focus: 'center 25%',
     shift: '0%',
