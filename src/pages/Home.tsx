@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Activity, Smile, Heart, Users, Sparkles, ClipboardCheck, Brain, Compass, BookOpen, ChevronDown } from 'lucide-react'
+import { ArrowRight, Activity, Smile, Heart, Users, Sparkles, ClipboardCheck, Brain, Compass, BookOpen, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import logoNexos from '../assets/images/logo-nexos.png'
 
@@ -104,6 +104,9 @@ const STATS: { n: string; label: string }[] = [
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null)
+  const trackRef = useRef<HTMLDivElement>(null)
+  const carouselPaused = useRef(false)
+  const carouselPauseUntil = useRef(0)
 
   useEffect(() => {
     const el = heroRef.current
@@ -115,6 +118,36 @@ export default function Home() {
       el.style.opacity = '1'
       el.style.transform = 'translateY(0)'
     })
+  }, [])
+
+  const scrollCarousel = (dir: 1 | -1) => {
+    const track = trackRef.current
+    if (!track) return
+    const card = track.firstElementChild as HTMLElement | null
+    if (!card) return
+    const step = card.offsetWidth + 24
+    const half = track.scrollWidth / 2
+    // reubicar dentro de la primera mitad antes de animar, para no chocar con los bordes
+    if (dir === 1 && track.scrollLeft >= half) track.scrollLeft -= half
+    if (dir === -1 && track.scrollLeft < step) track.scrollLeft += half
+    carouselPauseUntil.current = Date.now() + 1200
+    track.scrollBy({ left: step * dir, behavior: 'smooth' })
+  }
+
+  useEffect(() => {
+    const track = trackRef.current
+    if (!track) return
+    let raf: number
+    const tick = () => {
+      const half = track.scrollWidth / 2
+      if (!carouselPaused.current && Date.now() > carouselPauseUntil.current) {
+        track.scrollLeft += 0.6
+        if (track.scrollLeft >= half) track.scrollLeft -= half
+      }
+      raf = requestAnimationFrame(tick)
+    }
+    raf = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(raf)
   }, [])
 
   return (
@@ -243,28 +276,64 @@ export default function Home() {
             </h2>
           </div>
 
-          {/* 3-column grid; last row auto-centers via justify-center on the flex fallback */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {SERVICES.map(({ icon: Icon, color, title, desc }) => (
-              <div
-                key={title}
-                style={{ border: '1.5px solid #e8f0f4', transition: 'all 0.25s ease' }}
-                className="p-7 rounded-2xl hover:shadow-xl hover:-translate-y-1 group cursor-default"
-              >
+          {/* Carrusel automático con flechas */}
+          <div className="relative">
+            <button
+              type="button"
+              aria-label="Servicio anterior"
+              onClick={() => scrollCarousel(-1)}
+              style={{ backgroundColor: 'white', border: '1.5px solid rgba(77,201,176,0.4)', color: '#4DC9B0' }}
+              className="absolute -left-3 md:-left-5 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full flex items-center justify-center shadow-md hover:bg-[#4DC9B0] hover:text-white hover:border-[#4DC9B0] transition-colors cursor-pointer"
+            >
+              <ChevronLeft size={22} />
+            </button>
+            <button
+              type="button"
+              aria-label="Servicio siguiente"
+              onClick={() => scrollCarousel(1)}
+              style={{ backgroundColor: 'white', border: '1.5px solid rgba(77,201,176,0.4)', color: '#4DC9B0' }}
+              className="absolute -right-3 md:-right-5 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full flex items-center justify-center shadow-md hover:bg-[#4DC9B0] hover:text-white hover:border-[#4DC9B0] transition-colors cursor-pointer"
+            >
+              <ChevronRight size={22} />
+            </button>
+
+            <div
+              ref={trackRef}
+              onMouseEnter={() => { carouselPaused.current = true }}
+              onMouseLeave={() => { carouselPaused.current = false }}
+              onTouchStart={() => { carouselPaused.current = true }}
+              onTouchEnd={() => {
+                carouselPaused.current = false
+                carouselPauseUntil.current = Date.now() + 1500
+              }}
+              style={{
+                scrollbarWidth: 'none',
+                maskImage: 'linear-gradient(to right, transparent 0, black 56px, black calc(100% - 56px), transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to right, transparent 0, black 56px, black calc(100% - 56px), transparent 100%)',
+              }}
+              className="flex gap-6 overflow-x-auto py-2 [&::-webkit-scrollbar]:hidden"
+            >
+              {[...SERVICES, ...SERVICES].map(({ icon: Icon, color, title, desc }, i) => (
                 <div
-                  style={{ backgroundColor: `${color}18`, color }}
-                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"
+                  key={`${title}-${i}`}
+                  style={{ border: '1.5px solid #e8f0f4', transition: 'all 0.25s ease' }}
+                  className="flex-none w-[85%] sm:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] p-7 rounded-2xl hover:shadow-xl hover:-translate-y-1 group cursor-default"
                 >
-                  <Icon size={22} />
+                  <div
+                    style={{ backgroundColor: `${color}18`, color }}
+                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"
+                  >
+                    <Icon size={22} />
+                  </div>
+                  <h3 style={{ color: '#5A6B7B' }} className="font-semibold text-base mb-2">
+                    {title}
+                  </h3>
+                  <p style={{ color: '#8fa7b5' }} className="text-sm leading-relaxed">
+                    {desc}
+                  </p>
                 </div>
-                <h3 style={{ color: '#5A6B7B' }} className="font-semibold text-base mb-2">
-                  {title}
-                </h3>
-                <p style={{ color: '#8fa7b5' }} className="text-sm leading-relaxed">
-                  {desc}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>

@@ -28,8 +28,9 @@ export default function Navbar() {
   return (
     <header
       style={{
-        backgroundColor: scrolled ? 'rgba(255,255,255,0.97)' : 'rgba(255,255,255,0.85)',
-        backdropFilter: 'blur(12px)',
+        backgroundColor: scrolled ? 'rgba(255,255,255,0.45)' : 'rgba(255,255,255,0.85)',
+        backdropFilter: scrolled ? 'blur(16px) saturate(1.4)' : 'blur(12px)',
+        WebkitBackdropFilter: scrolled ? 'blur(16px) saturate(1.4)' : 'blur(12px)',
         boxShadow: scrolled ? '0 2px 20px rgba(77,201,176,0.15)' : 'none',
         transition: 'all 0.3s ease',
       }}
@@ -47,7 +48,7 @@ export default function Navbar() {
         </NavLink>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-8">
           {links.map(({ to, label }) => (
             <NavLink
               key={to}
@@ -61,7 +62,7 @@ export default function Navbar() {
                 paddingBottom: '2px',
                 transition: 'all 0.2s ease',
               })}
-              className="text-sm uppercase tracking-widest hover:text-[#4DC9B0] transition-colors"
+              className="text-sm uppercase tracking-widest whitespace-nowrap hover:text-[#4DC9B0] transition-colors"
             >
               {label}
             </NavLink>
@@ -79,7 +80,7 @@ export default function Navbar() {
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           style={{ color: '#5A6B7B' }}
-          className="md:hidden p-1"
+          className="lg:hidden p-1"
           aria-label="Abrir menú"
         >
           {menuOpen ? <X size={26} /> : <Menu size={26} />}
@@ -90,7 +91,7 @@ export default function Navbar() {
       {menuOpen && (
         <div
           style={{ backgroundColor: 'rgba(255,255,255,0.98)', borderTop: '1px solid #e8f8f4' }}
-          className="md:hidden px-6 pb-6 flex flex-col gap-4"
+          className="lg:hidden px-6 pb-6 flex flex-col gap-4"
         >
           {links.map(({ to, label }) => (
             <NavLink

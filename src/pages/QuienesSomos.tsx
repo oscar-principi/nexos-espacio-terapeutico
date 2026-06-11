@@ -3,9 +3,11 @@ import { Award, BookOpen, Heart, Users, LucideIcon } from 'lucide-react'
 interface TeamMember {
   name: string
   role: string
-  specialty: string
   color: string
-  initial: string
+  photo: string
+  zoom: number
+  focus: string
+  shift: string
 }
 
 interface Value {
@@ -22,25 +24,31 @@ interface Stat {
 
 const TEAM: TeamMember[] = [
   {
-    name: 'Natalia Maria',
+    name: 'Lic. Natalia Maria',
     role: 'Psicóloga · Socia Fundadora',
-    specialty: 'Especialidad',
     color: '#E8525A',
-    initial: 'N',
+    photo: '/profesionales/Natalia.jpeg',
+    zoom: 1.28,
+    focus: 'center 40%',
+    shift: '0%',
   },
   {
-    name: 'Victoria Perez de San Roman',
+    name: 'Lic. Victoria Perez de San Roman',
     role: 'Psicóloga · Socia Fundadora',
-    specialty: 'Especialidad',
     color: '#4DC9B0',
-    initial: 'V',
+    photo: '/profesionales/Victoria.jpeg?v=2',
+    zoom: 1,
+    focus: 'center 0%',
+    shift: '0%',
   },
   {
-    name: 'Maria Luz Ruiz Campos',
+    name: 'Lic. Maria Luz Ruiz Campos',
     role: 'Psicóloga · Socia Fundadora',
-    specialty: 'Especialidad',
     color: '#B07CC6',
-    initial: 'M',
+    photo: '/profesionales/Luz.jpeg',
+    zoom: 1.2,
+    focus: 'center 25%',
+    shift: '0%',
   },
 ]
 
@@ -194,39 +202,31 @@ export default function QuienesSomos() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {TEAM.map(({ name, role, specialty, color, initial }) => (
+            {TEAM.map(({ name, role, color, photo, zoom, focus, shift }) => (
               <div
                 key={name}
                 style={{ border: '1.5px solid #e8f0f4' }}
                 className="rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1 group"
               >
                 <div
-                  style={{ backgroundColor: `${color}18`, height: 160 }}
-                  className="flex items-center justify-center"
+                  style={{ backgroundColor: `${color}18`, aspectRatio: '4 / 5' }}
+                  className="overflow-hidden"
                 >
-                  <div
+                  <img
+                    src={photo}
+                    alt={name}
                     style={{
-                      width: 80,
-                      height: 80,
-                      borderRadius: '50%',
-                      backgroundColor: color,
-                      color: 'white',
-                      fontSize: 32,
-                      fontWeight: 700,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      boxShadow: `0 8px 24px ${color}55`,
+                      objectPosition: focus,
+                      transform: `translateY(${shift}) scale(${zoom})`,
+                      transformOrigin: 'center 30%',
                     }}
-                  >
-                    {initial}
-                  </div>
+                    className="w-full h-full object-cover"
+                  />
                 </div>
 
                 <div className="p-6">
                   <h3 style={{ color: '#5A6B7B' }} className="font-semibold text-base">{name}</h3>
-                  <p style={{ color }} className="text-xs font-medium mt-1 mb-2">{role}</p>
-                  <p style={{ color: '#8fa7b5' }} className="text-sm">{specialty}</p>
+                  <p style={{ color }} className="text-xs font-medium mt-1">{role}</p>
                 </div>
               </div>
             ))}
