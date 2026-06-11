@@ -1,4 +1,6 @@
 import { Award, BookOpen, Heart, Users, LucideIcon } from 'lucide-react'
+import Reveal from '../components/Reveal'
+import CountUp from '../components/CountUp'
 
 interface TeamMember {
   name: string
@@ -27,7 +29,7 @@ const TEAM: TeamMember[] = [
     name: 'Lic. Natalia Maria',
     role: 'Psicóloga · Socia Fundadora',
     color: '#E8525A',
-    photo: '/profesionales/Natalia.jpeg',
+    photo: `${import.meta.env.BASE_URL}profesionales/Natalia.jpeg`,
     zoom: 1.28,
     focus: 'center 40%',
     shift: '0%',
@@ -36,7 +38,7 @@ const TEAM: TeamMember[] = [
     name: 'Lic. Victoria Perez de San Roman',
     role: 'Psicóloga · Socia Fundadora',
     color: '#4DC9B0',
-    photo: '/profesionales/Victoria.jpeg?v=2',
+    photo: `${import.meta.env.BASE_URL}profesionales/Victoria.jpeg?v=2`,
     zoom: 1,
     focus: 'center 0%',
     shift: '0%',
@@ -45,7 +47,7 @@ const TEAM: TeamMember[] = [
     name: 'Lic. Maria Luz Ruiz Campos',
     role: 'Psicóloga · Socia Fundadora',
     color: '#B07CC6',
-    photo: '/profesionales/Luz.jpeg',
+    photo: `${import.meta.env.BASE_URL}profesionales/Luz.jpeg`,
     zoom: 1.2,
     focus: 'center 25%',
     shift: '0%',
@@ -102,7 +104,7 @@ export default function QuienesSomos() {
       {/* ─── HISTORIA ─── */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-14 items-center">
-          <div className="relative flex justify-center">
+          <Reveal className="relative flex justify-center">
             <div
               style={{
                 width: 260,
@@ -133,9 +135,9 @@ export default function QuienesSomos() {
                 <p style={{ color: '#7a8f9e', fontSize: 11, margin: 0 }}>años de trayectoria</p>
               </div>
             </div>
-          </div>
+          </Reveal>
 
-          <div>
+          <Reveal delay={150}>
             <h2 style={{ color: '#5A6B7B' }} className="text-3xl font-light mb-5">
               Nuestra historia
             </h2>
@@ -148,24 +150,26 @@ export default function QuienesSomos() {
             <div className="flex gap-8">
               {STATS.map(({ n, label }) => (
                 <div key={label}>
-                  <p style={{ color: '#4DC9B0', fontWeight: 700 }} className="text-2xl">{n}</p>
+                  <p style={{ color: '#4DC9B0', fontWeight: 700 }} className="text-2xl">
+                    <CountUp value={n} />
+                  </p>
                   <p style={{ color: '#8fa7b5' }} className="text-xs mt-0.5">{label}</p>
                 </div>
               ))}
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ─── VALORES ─── */}
       <section style={{ backgroundColor: '#f9fbfc' }} className="py-20">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-12">
+          <Reveal className="text-center mb-12">
             <h2 style={{ color: '#5A6B7B' }} className="text-3xl font-light">
               Nuestros valores
             </h2>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          </Reveal>
+          <Reveal delay={120} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {VALUES.map(({ icon: Icon, color, label, desc }) => (
               <div
                 key={label}
@@ -182,14 +186,14 @@ export default function QuienesSomos() {
                 <p style={{ color: '#8fa7b5' }} className="text-sm leading-relaxed">{desc}</p>
               </div>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ─── EQUIPO ─── */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-12">
+          <Reveal className="text-center mb-12">
             <span
               style={{ color: '#4DC9B0', letterSpacing: '0.2em' }}
               className="text-xs uppercase font-semibold"
@@ -199,9 +203,9 @@ export default function QuienesSomos() {
             <h2 style={{ color: '#5A6B7B' }} className="text-3xl font-light mt-2">
               Socias fundadoras
             </h2>
-          </div>
+          </Reveal>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <Reveal delay={120} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {TEAM.map(({ name, role, color, photo, zoom, focus, shift }) => (
               <div
                 key={name}
@@ -210,7 +214,7 @@ export default function QuienesSomos() {
               >
                 <div
                   style={{ backgroundColor: `${color}18`, aspectRatio: '4 / 5' }}
-                  className="overflow-hidden"
+                  className="photo-shine overflow-hidden"
                 >
                   <img
                     src={photo}
@@ -230,7 +234,7 @@ export default function QuienesSomos() {
                 </div>
               </div>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 

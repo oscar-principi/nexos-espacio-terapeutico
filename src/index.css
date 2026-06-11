@@ -34,8 +34,94 @@
 @media (prefers-reduced-motion: reduce) {
   .app-shell,
   .route-transition,
-  .mobile-logo-motion {
+  .mobile-logo-motion,
+  .float-drift,
+  .btn-shine::after,
+  .photo-shine:hover::after {
     animation: none;
+  }
+}
+
+/* Deriva lenta de los círculos decorativos del hero */
+.float-drift {
+  animation: float-drift var(--drift-duration, 12s) ease-in-out var(--drift-delay, 0s) infinite alternate;
+}
+
+@keyframes float-drift {
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(16px, -22px);
+  }
+}
+
+/* Destello periódico que recorre los botones principales */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -60%;
+  width: 40%;
+  background: linear-gradient(105deg, transparent 0%, rgba(255, 255, 255, 0.45) 50%, transparent 100%);
+  transform: skewX(-20deg);
+  animation: btn-shine-sweep 4.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.btn-shine-green::after {
+  background: linear-gradient(105deg, transparent 0%, rgba(77, 201, 176, 0.25) 50%, transparent 100%);
+}
+
+@keyframes btn-shine-sweep {
+  0% {
+    left: -60%;
+  }
+
+  18% {
+    left: 130%;
+  }
+
+  100% {
+    left: 130%;
+  }
+}
+
+/* Destello que recorre las fotos al pasar el mouse */
+.photo-shine {
+  position: relative;
+}
+
+.photo-shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -75%;
+  width: 50%;
+  background: linear-gradient(105deg, transparent 0%, rgba(255, 255, 255, 0.45) 50%, transparent 100%);
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+
+.photo-shine:hover::after {
+  animation: photo-shine-sweep 0.9s ease;
+}
+
+@keyframes photo-shine-sweep {
+  from {
+    left: -75%;
+  }
+
+  to {
+    left: 125%;
   }
 }
 

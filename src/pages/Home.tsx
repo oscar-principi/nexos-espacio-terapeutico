@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Activity, Smile, Heart, Users, Sparkles, ClipboardCheck, Brain, Compass, BookOpen, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import logoNexos from '../assets/images/logo-nexos.png'
+import Reveal from '../components/Reveal'
+import CountUp from '../components/CountUp'
 
 interface Service {
   icon: LucideIcon
@@ -166,6 +168,7 @@ export default function Home() {
         {DOTS.map((d, i) => (
           <span
             key={i}
+            className="float-drift"
             style={{
               position: 'absolute',
               top: d.top,
@@ -176,7 +179,9 @@ export default function Home() {
               borderRadius: '50%',
               border: `3px solid ${d.color}`,
               opacity: 0.18,
-            }}
+              '--drift-duration': `${10 + i * 3}s`,
+              '--drift-delay': `${i * 1.2}s`,
+            } as React.CSSProperties}
           />
         ))}
         <span
@@ -232,7 +237,7 @@ export default function Home() {
               <Link
                 to="/contacto"
                 style={{ backgroundColor: '#4DC9B0' }}
-                className="inline-flex items-center gap-2 text-white font-semibold px-7 py-3.5 rounded-full hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+                className="btn-shine inline-flex items-center gap-2 text-white font-semibold px-7 py-3.5 rounded-full hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
               >
                 Solicitar turno <ArrowRight size={18} />
               </Link>
@@ -264,7 +269,7 @@ export default function Home() {
       {/* ─── SERVICIOS ─── */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-14">
+          <Reveal className="text-center mb-14">
             <span
               style={{ color: '#4DC9B0', letterSpacing: '0.2em' }}
               className="text-xs uppercase font-semibold"
@@ -274,10 +279,10 @@ export default function Home() {
             <h2 style={{ color: '#5A6B7B' }} className="text-4xl font-light mt-2">
               Nuestros servicios
             </h2>
-          </div>
+          </Reveal>
 
           {/* Carrusel automático con flechas */}
-          <div className="relative">
+          <Reveal delay={150} className="relative">
             <button
               type="button"
               aria-label="Servicio anterior"
@@ -334,21 +339,23 @@ export default function Home() {
                 </div>
               ))}
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ─── STATS ─── */}
       <section style={{ backgroundColor: '#f9fbfc' }} className="py-16">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-3 gap-8 text-center">
+          <Reveal className="grid grid-cols-3 gap-8 text-center">
             {STATS.map(({ n, label }) => (
               <div key={label}>
-                <p style={{ color: '#4DC9B0', fontWeight: 700 }} className="text-4xl">{n}</p>
+                <p style={{ color: '#4DC9B0', fontWeight: 700 }} className="text-4xl">
+                  <CountUp value={n} />
+                </p>
                 <p style={{ color: '#8fa7b5' }} className="text-sm mt-1">{label}</p>
               </div>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -357,7 +364,7 @@ export default function Home() {
         style={{ background: 'linear-gradient(135deg, #4DC9B0 0%, #2E9E7A 100%)' }}
         className="py-20"
       >
-        <div className="max-w-3xl mx-auto px-6 text-center text-white">
+        <Reveal className="max-w-3xl mx-auto px-6 text-center text-white">
           <h2 className="text-4xl font-light mb-4">
             ¿Listo para dar el primer paso?
           </h2>
@@ -367,11 +374,11 @@ export default function Home() {
           <Link
             to="/contacto"
             style={{ backgroundColor: 'white', color: '#4DC9B0' }}
-            className="inline-flex items-center gap-2 font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform shadow-lg text-base"
+            className="btn-shine btn-shine-green inline-flex items-center gap-2 font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform shadow-lg text-base"
           >
             Escribinos ahora <ArrowRight size={18} />
           </Link>
-        </div>
+        </Reveal>
       </section>
 
     </div>

@@ -70,7 +70,7 @@ export default function Navbar() {
           <NavLink
             to="/contacto"
             style={{ backgroundColor: '#4DC9B0', fontFamily: "'Nunito', sans-serif" }}
-            className="text-white text-sm font-semibold px-5 py-2 rounded-full uppercase tracking-wider hover:opacity-90 transition-opacity"
+            className="btn-shine text-white text-sm font-semibold px-5 py-2 rounded-full uppercase tracking-wider hover:opacity-90 transition-opacity"
           >
             Turnos
           </NavLink>
