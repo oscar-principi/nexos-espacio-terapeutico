@@ -101,7 +101,7 @@ const DOTS: DotDecoration[] = [
 const STATS: { n: string; label: string }[] = [
   { n: '+500', label: 'Pacientes acompañados' },
   { n: '3', label: 'Socias fundadoras' },
-  { n: '10+', label: 'Años de experiencia' },
+  { n: '7+', label: 'Años de experiencia' },
 ]
 
 export default function Home() {

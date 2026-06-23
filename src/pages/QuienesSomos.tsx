@@ -69,7 +69,7 @@ const VALUES: Value[] = [
 const STATS: Stat[] = [
   { n: '+500', label: 'Pacientes acompañados' },
   { n: '3', label: 'Socias fundadoras' },
-  { n: '10+', label: 'Años de experiencia' },
+  { n: '7+', label: 'Años de experiencia' },
 ]
 
 export default function QuienesSomos() {
@@ -136,7 +136,7 @@ export default function QuienesSomos() {
                   boxShadow: '0 8px 24px rgba(0,0,0,0.08)',
                 }}
               >
-                <span style={{ color: '#4DC9B0', fontWeight: 700, fontSize: 22 }}>+10</span>
+                <span style={{ color: '#4DC9B0', fontWeight: 700, fontSize: 22 }}>+7</span>
                 <p style={{ color: '#7a8f9e', fontSize: 11, margin: 0 }}>años de trayectoria</p>
               </div>
             </div>
@@ -147,7 +147,7 @@ export default function QuienesSomos() {
               Nuestra historia
             </h2>
             <p style={{ color: '#7a8f9e' }} className="leading-relaxed mb-4">
-              Nexos Espacio Terapéutico surgió en (año) como un proyecto colaborativo entre 3 profesionales de la salud mental que compartían una misma visión: crear un espacio donde cada persona se sintiera comprendida, acompañada y capaz de transformar su realidad.
+              Nexos Espacio Terapéutico surgió en 2019 como un proyecto colaborativo entre 3 profesionales de la salud mental que compartían una misma visión: crear un espacio donde cada persona se sintiera comprendida, acompañada y capaz de transformar su realidad.
             </p>
             <p style={{ color: '#7a8f9e' }} className="leading-relaxed mb-6">
               Con el tiempo fuimos creciendo, incorporando nuevas miradas y especialidades, siempre con la calidez humana como eje central de nuestra práctica.
@@ -218,8 +218,8 @@ export default function QuienesSomos() {
                 className="rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1 group"
               >
                 <div
-                  style={{ backgroundColor: `${color}18`, aspectRatio: '4 / 5' }}
-                  className="photo-shine overflow-hidden"
+                  style={{ backgroundColor: `${color}18`, aspectRatio: '4 / 5', maxWidth: '70%' }}
+                  className="photo-shine overflow-hidden mx-auto mt-6 rounded-xl"
                 >
                   <img
                     src={photo}
@@ -233,8 +233,8 @@ export default function QuienesSomos() {
                   />
                 </div>
 
-                <div className="p-6">
-                  <h3 style={{ color: '#5A6B7B' }} className="font-semibold text-base">{name}</h3>
+                <div className="p-6 text-center">
+                  <h3 style={{ color: '#5A6B7B' }} className="font-semibold text-xl">{name}</h3>
                   <p style={{ color }} className="text-xs font-medium mt-1">{role}</p>
                 </div>
               </div>
