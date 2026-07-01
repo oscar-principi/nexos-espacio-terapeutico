@@ -83,7 +83,7 @@ export default function PreguntasFrecuentes() {
           background: 'linear-gradient(135deg, var(--wash-1) 0%, var(--wash-2) 60%, var(--wash-3) 100%)',
           paddingTop: '120px',
         }}
-        className="pb-20"
+        className="pb-6"
       >
         <div className="max-w-6xl mx-auto px-6 text-center">
           <span

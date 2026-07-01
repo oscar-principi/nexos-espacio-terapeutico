@@ -82,7 +82,7 @@ export default function QuienesSomos() {
           background: 'linear-gradient(135deg, var(--wash-1) 0%, var(--wash-2) 60%, var(--wash-3) 100%)',
           paddingTop: '120px',
         }}
-        className="pb-20"
+        className="pb-6"
       >
         <div className="max-w-6xl mx-auto px-6 text-center">
           <span
@@ -107,9 +107,9 @@ export default function QuienesSomos() {
       </section>
 
       {/* ─── EQUIPO ─── */}
-      <section className="py-20 bg-white">
+      <section className="pt-4 pb-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <Reveal className="text-center mb-12">
+          <Reveal className="text-center mb-4">
             <span
               style={{ color: 'var(--color-primary)', letterSpacing: '0.2em' }}
               className="text-xs uppercase font-semibold"
@@ -129,7 +129,7 @@ export default function QuienesSomos() {
                 className="rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1 group"
               >
                 <div
-                  style={{ backgroundColor: `${color}18`, aspectRatio: '4 / 5', maxWidth: '70%' }}
+                  style={{ backgroundColor: `${color}18`, aspectRatio: '4 / 5', maxWidth: '50%' }}
                   className="photo-shine overflow-hidden mx-auto mt-6 rounded-xl"
                 >
                   <img
