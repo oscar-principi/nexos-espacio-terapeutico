@@ -2,9 +2,20 @@ import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Activity, Smile, Heart, Users, Sparkles, ClipboardCheck, Brain, Compass, BookOpen, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
-import logoNexos from '../assets/images/logo-nexos.png'
+import logoNexosVerde from '../assets/images/logo-nexos-verde.png'
+import logoNexosVioleta from '../assets/images/logo-nexos-violeta.png'
+import logoNexosCeleste from '../assets/images/logo-nexos-celeste.png'
+import logoNexosRosa from '../assets/images/logo-nexos-rosa.png'
 import Reveal from '../components/Reveal'
 import CountUp from '../components/CountUp'
+import { useTheme, type ThemeName } from '../context/ThemeContext'
+
+const LOGO_BY_THEME: Record<ThemeName, string> = {
+  verde: logoNexosVerde,
+  violeta: logoNexosVioleta,
+  celeste: logoNexosCeleste,
+  rosa: logoNexosRosa,
+}
 
 interface Service {
   icon: LucideIcon
@@ -109,6 +120,8 @@ export default function Home() {
   const trackRef = useRef<HTMLDivElement>(null)
   const carouselPaused = useRef(false)
   const carouselPauseUntil = useRef(0)
+  const { theme } = useTheme()
+  const logoSrc = LOGO_BY_THEME[theme]
 
   useEffect(() => {
     const el = heroRef.current
@@ -158,7 +171,7 @@ export default function Home() {
       {/* ─── HERO ─── */}
       <section
         style={{
-          background: 'linear-gradient(135deg, #f0fdf8 0%, #e8f8f4 50%, #f5f9ff 100%)',
+          background: 'linear-gradient(135deg, var(--wash-1) 0%, var(--wash-2) 50%, var(--wash-3) 100%)',
           minHeight: '100vh',
           position: 'relative',
           overflow: 'hidden',
@@ -192,7 +205,7 @@ export default function Home() {
             width: 320,
             height: 320,
             borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(77,201,176,0.12) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(var(--color-primary-rgb),0.12) 0%, transparent 70%)',
           }}
         />
 
@@ -200,9 +213,9 @@ export default function Home() {
           <div>
             <span
               style={{
-                backgroundColor: 'rgba(77,201,176,0.12)',
-                color: '#4DC9B0',
-                border: '1px solid rgba(77,201,176,0.3)',
+                backgroundColor: 'rgba(var(--color-primary-rgb),0.12)',
+                color: 'var(--color-primary)',
+                border: '1px solid rgba(var(--color-primary-rgb),0.3)',
                 letterSpacing: '0.2em',
               }}
               className="inline-block text-xs uppercase font-semibold px-4 py-1.5 rounded-full mb-6"
@@ -216,13 +229,13 @@ export default function Home() {
             >
               Un lugar para
               <br />
-              <span style={{ color: '#4DC9B0', fontWeight: 600 }}>conectarte</span>
+              <span style={{ color: 'var(--color-primary)', fontWeight: 600 }}>conectarte</span>
               <br />
               con vos{' '}
               <span className="inline-flex items-end gap-4">
                 mismo
                 <img
-                  src={logoNexos}
+                  src={logoSrc}
                   alt="Logo Nexos"
                   className="md:hidden w-10 h-auto mobile-logo-motion"
                 />
@@ -236,7 +249,7 @@ export default function Home() {
             <div className="flex flex-wrap gap-4">
               <Link
                 to="/contacto"
-                style={{ backgroundColor: '#4DC9B0' }}
+                style={{ backgroundColor: 'var(--color-primary)' }}
                 className="btn-shine inline-flex items-center gap-2 text-white font-semibold px-7 py-3.5 rounded-full hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
               >
                 Solicitar turno <ArrowRight size={18} />
@@ -244,7 +257,7 @@ export default function Home() {
               <Link
                 to="/quienes-somos"
                 style={{ color: '#5A6B7B', border: '1.5px solid #c8d6df' }}
-                className="inline-flex items-center gap-2 font-medium px-7 py-3.5 rounded-full hover:border-[#4DC9B0] hover:text-[#4DC9B0] transition-all"
+                className="inline-flex items-center gap-2 font-medium px-7 py-3.5 rounded-full hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-all"
               >
                 Conocenos
               </Link>
@@ -254,7 +267,7 @@ export default function Home() {
           {/* Logo visual */}
           <div className="hidden md:flex justify-center items-center">
             <img
-              src={logoNexos}
+              src={logoSrc}
               alt="Logo Nexos"
               className="w-360px lg:w-440px h-auto drop-shadow-xl transition-transform duration-1000 ease-in-out hover:rotate-[360deg]"
             />
@@ -262,7 +275,7 @@ export default function Home() {
         </div>
 
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 animate-bounce">
-          <ChevronDown size={20} style={{ color: '#4DC9B0', opacity: 0.6 }} />
+          <ChevronDown size={20} style={{ color: 'var(--color-primary)', opacity: 0.6 }} />
         </div>
       </section>
 
@@ -271,7 +284,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <Reveal className="text-center mb-14">
             <span
-              style={{ color: '#4DC9B0', letterSpacing: '0.2em' }}
+              style={{ color: 'var(--color-primary)', letterSpacing: '0.2em' }}
               className="text-xs uppercase font-semibold"
             >
               ¿Cómo podemos acompañarte?
@@ -287,8 +300,8 @@ export default function Home() {
               type="button"
               aria-label="Servicio anterior"
               onClick={() => scrollCarousel(-1)}
-              style={{ backgroundColor: 'white', border: '1.5px solid rgba(77,201,176,0.4)', color: '#4DC9B0' }}
-              className="absolute -left-3 md:-left-5 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full flex items-center justify-center shadow-md hover:bg-[#4DC9B0] hover:text-white hover:border-[#4DC9B0] transition-colors cursor-pointer"
+              style={{ backgroundColor: 'white', border: '1.5px solid rgba(var(--color-primary-rgb),0.4)', color: 'var(--color-primary)' }}
+              className="absolute -left-3 md:-left-5 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full flex items-center justify-center shadow-md hover:bg-[var(--color-primary)] hover:text-white hover:border-[var(--color-primary)] transition-colors cursor-pointer"
             >
               <ChevronLeft size={22} />
             </button>
@@ -296,8 +309,8 @@ export default function Home() {
               type="button"
               aria-label="Servicio siguiente"
               onClick={() => scrollCarousel(1)}
-              style={{ backgroundColor: 'white', border: '1.5px solid rgba(77,201,176,0.4)', color: '#4DC9B0' }}
-              className="absolute -right-3 md:-right-5 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full flex items-center justify-center shadow-md hover:bg-[#4DC9B0] hover:text-white hover:border-[#4DC9B0] transition-colors cursor-pointer"
+              style={{ backgroundColor: 'white', border: '1.5px solid rgba(var(--color-primary-rgb),0.4)', color: 'var(--color-primary)' }}
+              className="absolute -right-3 md:-right-5 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full flex items-center justify-center shadow-md hover:bg-[var(--color-primary)] hover:text-white hover:border-[var(--color-primary)] transition-colors cursor-pointer"
             >
               <ChevronRight size={22} />
             </button>
@@ -349,7 +362,7 @@ export default function Home() {
           <Reveal className="grid grid-cols-3 gap-8 text-center">
             {STATS.map(({ n, label }) => (
               <div key={label}>
-                <p style={{ color: '#4DC9B0', fontWeight: 700 }} className="text-4xl">
+                <p style={{ color: 'var(--color-primary)', fontWeight: 700 }} className="text-4xl">
                   <CountUp value={n} />
                 </p>
                 <p style={{ color: '#8fa7b5' }} className="text-sm mt-1">{label}</p>
@@ -361,7 +374,7 @@ export default function Home() {
 
       {/* ─── CTA ─── */}
       <section
-        style={{ background: 'linear-gradient(135deg, #4DC9B0 0%, #2E9E7A 100%)' }}
+        style={{ background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%)' }}
         className="py-20"
       >
         <Reveal className="max-w-3xl mx-auto px-6 text-center text-white">
@@ -373,7 +386,7 @@ export default function Home() {
           </p>
           <Link
             to="/contacto"
-            style={{ backgroundColor: 'white', color: '#4DC9B0' }}
+            style={{ backgroundColor: 'white', color: 'var(--color-primary)' }}
             className="btn-shine btn-shine-green inline-flex items-center gap-2 font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform shadow-lg text-base"
           >
             Escribinos ahora <ArrowRight size={18} />

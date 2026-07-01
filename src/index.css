@@ -1,5 +1,41 @@
 @import "tailwindcss";
 
+:root {
+  --color-primary: #4DC9B0;
+  --color-primary-dark: #2E9E7A;
+  --color-primary-rgb: 77, 201, 176;
+  --wash-1: #f0fdf8;
+  --wash-2: #e8f8f4;
+  --wash-3: #f5f9ff;
+}
+
+[data-theme='violeta'] {
+  --color-primary: #9B8AE0;
+  --color-primary-dark: #6E56C8;
+  --color-primary-rgb: 155, 138, 224;
+  --wash-1: #f6f2fd;
+  --wash-2: #ede4fa;
+  --wash-3: #f5f0ff;
+}
+
+[data-theme='celeste'] {
+  --color-primary: #4DA9E8;
+  --color-primary-dark: #2E7EB8;
+  --color-primary-rgb: 77, 169, 232;
+  --wash-1: #eef8ff;
+  --wash-2: #e3f2fd;
+  --wash-3: #f0f8ff;
+}
+
+[data-theme='rosa'] {
+  --color-primary: #E87CA0;
+  --color-primary-dark: #C15577;
+  --color-primary-rgb: 232, 124, 160;
+  --wash-1: #fdf0f5;
+  --wash-2: #fbe4ec;
+  --wash-3: #fff5f8;
+}
+
 .app-shell {
   animation: app-fade-in 760ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
@@ -77,7 +113,7 @@
 }
 
 .btn-shine-green::after {
-  background: linear-gradient(105deg, transparent 0%, rgba(77, 201, 176, 0.25) 50%, transparent 100%);
+  background: linear-gradient(105deg, transparent 0%, rgba(var(--color-primary-rgb), 0.25) 50%, transparent 100%);
 }
 
 @keyframes btn-shine-sweep {

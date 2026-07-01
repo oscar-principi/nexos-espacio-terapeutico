@@ -80,14 +80,14 @@ export default function PreguntasFrecuentes() {
       {/* ─── HEADER ─── */}
       <section
         style={{
-          background: 'linear-gradient(135deg, #f0fdf8 0%, #e8f8f4 60%, #f5f9ff 100%)',
+          background: 'linear-gradient(135deg, var(--wash-1) 0%, var(--wash-2) 60%, var(--wash-3) 100%)',
           paddingTop: '120px',
         }}
         className="pb-20"
       >
         <div className="max-w-6xl mx-auto px-6 text-center">
           <span
-            style={{ color: '#4DC9B0', letterSpacing: '0.22em' }}
+            style={{ color: 'var(--color-primary)', letterSpacing: '0.22em' }}
             className="text-xs uppercase font-semibold"
           >
             ✦ Preguntas frecuentes
@@ -95,9 +95,9 @@ export default function PreguntasFrecuentes() {
           <h1 style={{ color: '#5A6B7B' }} className="text-5xl font-light mt-3 mb-5">
             Respondemos tus
             <br />
-            <span style={{ color: '#4DC9B0', fontWeight: 600 }}>dudas más comunes</span>
+            <span style={{ color: 'var(--color-primary)', fontWeight: 600 }}>dudas más comunes</span>
           </h1>
-          <p style={{ color: '#7a8f9e' }} className="text-lg max-w-2xl mx-auto leading-relaxed">
+          <p style={{ color: '#7a8f9e' }} className="text-lg max-w-5xl mx-auto leading-relaxed">
             Si tenés alguna pregunta que no está aquí, no dudes en escribirnos. Estamos para ayudarte.
           </p>
         </div>

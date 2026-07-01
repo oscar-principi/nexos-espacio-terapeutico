@@ -72,14 +72,14 @@ export default function Contacto() {
 
   const inputBase = (field: string): React.CSSProperties => ({
     width: '100%',
-    border: `1.5px solid ${errors[field as keyof FormData] ? '#E8525A' : focused === field ? '#4DC9B0' : '#dde8ed'}`,
+    border: `1.5px solid ${errors[field as keyof FormData] ? '#E8525A' : focused === field ? 'var(--color-primary)' : '#dde8ed'}`,
     borderRadius: 12,
     padding: '12px 16px',
     fontFamily: "'Nunito', sans-serif",
     fontSize: 15,
     color: '#5A6B7B',
     outline: 'none',
-    backgroundColor: focused === field ? 'rgba(77,201,176,0.03)' : 'white',
+    backgroundColor: focused === field ? 'rgba(var(--color-primary-rgb),0.03)' : 'white',
     transition: 'all 0.2s ease',
   })
 
@@ -107,14 +107,14 @@ export default function Contacto() {
       {/* ─── HEADER ─── */}
       <section
         style={{
-          background: 'linear-gradient(135deg, #f0fdf8 0%, #e8f8f4 60%, #f5f9ff 100%)',
+          background: 'linear-gradient(135deg, var(--wash-1) 0%, var(--wash-2) 60%, var(--wash-3) 100%)',
           paddingTop: '120px',
         }}
         className="pb-16"
       >
         <div className="max-w-6xl mx-auto px-6 text-center">
           <span
-            style={{ color: '#4DC9B0', letterSpacing: '0.22em' }}
+            style={{ color: 'var(--color-primary)', letterSpacing: '0.22em' }}
             className="text-xs uppercase font-semibold"
           >
             ✦ Contacto
@@ -122,9 +122,9 @@ export default function Contacto() {
           <h1 style={{ color: '#5A6B7B' }} className="text-5xl font-light mt-3 mb-4">
             Demos el primer
             <br />
-            <span style={{ color: '#4DC9B0', fontWeight: 600 }}>paso juntos</span>
+            <span style={{ color: 'var(--color-primary)', fontWeight: 600 }}>paso juntos</span>
           </h1>
-          <p style={{ color: '#7a8f9e' }} className="text-lg max-w-xl mx-auto">
+          <p style={{ color: '#7a8f9e' }} className="text-lg max-w-5xl mx-auto">
             Escribinos por WhatsApp, completá el formulario, o envianos un email y coordinamos tu consulta.
           </p>
         </div>
@@ -185,7 +185,7 @@ export default function Contacto() {
             >
               {submitted ? (
                 <div className="flex flex-col items-center justify-center text-center py-10 gap-4">
-                  <CheckCircle size={52} style={{ color: '#4DC9B0' }} />
+                  <CheckCircle size={52} style={{ color: 'var(--color-primary)' }} />
                   <h3 style={{ color: '#5A6B7B' }} className="text-2xl font-semibold">
                     ¡Gracias, {form.nombre}!
                   </h3>
@@ -194,8 +194,8 @@ export default function Contacto() {
                   </p>
                   <button
                     onClick={() => { setSubmitted(false); setForm({ nombre: '', edad: '', motivo: '' }) }}
-                    style={{ color: '#4DC9B0', border: '1.5px solid #4DC9B0' }}
-                    className="mt-2 px-6 py-2 rounded-full text-sm font-semibold hover:bg-[#4DC9B0] hover:text-white transition-all"
+                    style={{ color: 'var(--color-primary)', border: '1.5px solid var(--color-primary)' }}
+                    className="mt-2 px-6 py-2 rounded-full text-sm font-semibold hover:bg-[var(--color-primary)] hover:text-white transition-all"
                   >
                     Nueva consulta
                   </button>
@@ -261,7 +261,7 @@ export default function Contacto() {
                     {/* Submit */}
                     <button
                       onClick={handleSubmit}
-                      style={{ backgroundColor: '#4DC9B0', fontFamily: "'Nunito', sans-serif" }}
+                      style={{ backgroundColor: 'var(--color-primary)', fontFamily: "'Nunito', sans-serif" }}
                       className="w-full flex items-center justify-center gap-2 text-white font-semibold py-3.5 rounded-full hover:opacity-90 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 mt-2"
                     >
                       <Send size={17} />
@@ -310,7 +310,7 @@ export default function Contacto() {
                   href={mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ color: '#4DC9B0' }}
+                  style={{ color: 'var(--color-primary)' }}
                   className="inline-block mt-3 text-sm font-semibold hover:opacity-80 transition-opacity"
                 >
                   Abrir en Google Maps

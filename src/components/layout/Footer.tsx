@@ -21,10 +21,10 @@ const footerLinks: FooterLink[] = [
 ]
 
 const contactItems: ContactItem[] = [
-  { icon: Phone, color: '#4DC9B0', value: '(011) 15 4057 5607' },
-  { icon: Mail, color: '#4DC9B0', value: 'espacionexos@gmail.com' },
-  { icon: Instagram, color: '#4DC9B0', value: '@nexosespacioterapeutico' },
-  { icon: MapPin, color: '#4DC9B0', value: 'Belén de Escobar: Cesar Diaz 1118, depto 1' },
+  { icon: Phone, color: 'var(--color-primary)', value: '(011) 15 4057 5607' },
+  { icon: Mail, color: 'var(--color-primary)', value: 'espacionexos@gmail.com' },
+  { icon: Instagram, color: 'var(--color-primary)', value: '@nexosespacioterapeutico' },
+  { icon: MapPin, color: 'var(--color-primary)', value: 'Belén de Escobar: Cesar Diaz 1118, depto 1' },
 ]
 
 export default function Footer() {
@@ -45,11 +45,11 @@ export default function Footer() {
               style={{ fontFamily: "'Nunito', sans-serif", letterSpacing: '0.08em' }}
               className="text-3xl font-light"
             >
-              nex<span style={{ color: '#4DC9B0' }}>o</span>s
+              nex<span style={{ color: 'var(--color-primary)' }}>o</span>s
             </span>
           </div>
           <p
-            style={{ color: '#4DC9B0', fontFamily: "'Nunito', sans-serif", letterSpacing: '0.2em' }}
+            style={{ color: 'var(--color-primary)', fontFamily: "'Nunito', sans-serif", letterSpacing: '0.2em' }}
             className="text-xs uppercase mb-4"
           >
             espacio terapéutico
@@ -62,7 +62,7 @@ export default function Footer() {
         {/* Links */}
         <div>
           <h4
-            style={{ color: '#4DC9B0', fontFamily: "'Nunito', sans-serif", letterSpacing: '0.15em' }}
+            style={{ color: 'var(--color-primary)', fontFamily: "'Nunito', sans-serif", letterSpacing: '0.15em' }}
             className="text-xs uppercase font-semibold mb-4"
           >
             Navegación
@@ -85,7 +85,7 @@ export default function Footer() {
         {/* Contact */}
         <div>
           <h4
-            style={{ color: '#4DC9B0', fontFamily: "'Nunito', sans-serif", letterSpacing: '0.15em' }}
+            style={{ color: 'var(--color-primary)', fontFamily: "'Nunito', sans-serif", letterSpacing: '0.15em' }}
             className="text-xs uppercase font-semibold mb-4"
           >
             Contacto
@@ -103,16 +103,16 @@ export default function Footer() {
               href="https://www.instagram.com/nexosespacioterapeutico/"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ backgroundColor: 'rgba(77,201,176,0.2)', color: '#4DC9B0' }}
-              className="p-2 rounded-full hover:bg-[#4DC9B0] hover:text-white transition-all"
+              style={{ backgroundColor: 'rgba(var(--color-primary-rgb),0.2)', color: 'var(--color-primary)' }}
+              className="p-2 rounded-full hover:bg-[var(--color-primary)] hover:text-white transition-all"
               aria-label="Instagram"
             >
               <Instagram size={18} />
             </a>
             <a
               href="mailto:espacionexos@gmail.com"
-              style={{ backgroundColor: 'rgba(77,201,176,0.2)', color: '#4DC9B0' }}
-              className="p-2 rounded-full hover:bg-[#4DC9B0] hover:text-white transition-all"
+              style={{ backgroundColor: 'rgba(var(--color-primary-rgb),0.2)', color: 'var(--color-primary)' }}
+              className="p-2 rounded-full hover:bg-[var(--color-primary)] hover:text-white transition-all"
               aria-label="Email"
             >
               <Mail size={18} />
@@ -155,4 +155,4 @@ export default function Footer() {
       </div>
     </footer>
   )
-}   
+}

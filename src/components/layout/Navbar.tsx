@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import logoCompleto from '../../assets/images/logo-completo.jpg'
+import ThemeToggleButton from '../ui/ThemeToggleButton'
 
 interface NavItem {
   to: string
@@ -31,7 +32,7 @@ export default function Navbar() {
         backgroundColor: scrolled ? 'rgba(255,255,255,0.45)' : 'rgba(255,255,255,0.85)',
         backdropFilter: scrolled ? 'blur(16px) saturate(1.4)' : 'blur(12px)',
         WebkitBackdropFilter: scrolled ? 'blur(16px) saturate(1.4)' : 'blur(12px)',
-        boxShadow: scrolled ? '0 2px 20px rgba(77,201,176,0.15)' : 'none',
+        boxShadow: scrolled ? '0 2px 20px rgba(var(--color-primary-rgb),0.15)' : 'none',
         transition: 'all 0.3s ease',
       }}
       className="fixed top-0 left-0 right-0 z-50"
@@ -55,42 +56,46 @@ export default function Navbar() {
               to={to}
               end={to === '/'}
               style={({ isActive }) => ({
-                color: isActive ? '#4DC9B0' : '#5A6B7B',
+                color: isActive ? 'var(--color-primary)' : '#5A6B7B',
                 fontFamily: "'Nunito', sans-serif",
                 fontWeight: isActive ? '600' : '400',
-                borderBottom: isActive ? '2px solid #4DC9B0' : '2px solid transparent',
+                borderBottom: isActive ? '2px solid var(--color-primary)' : '2px solid transparent',
                 paddingBottom: '2px',
                 transition: 'all 0.2s ease',
               })}
-              className="text-sm uppercase tracking-widest whitespace-nowrap hover:text-[#4DC9B0] transition-colors"
+              className="text-sm uppercase tracking-widest whitespace-nowrap hover:text-[var(--color-primary)] transition-colors"
             >
               {label}
             </NavLink>
           ))}
           <NavLink
             to="/contacto"
-            style={{ backgroundColor: '#4DC9B0', fontFamily: "'Nunito', sans-serif" }}
+            style={{ backgroundColor: 'var(--color-primary)', fontFamily: "'Nunito', sans-serif" }}
             className="btn-shine text-white text-sm font-semibold px-5 py-2 rounded-full uppercase tracking-wider hover:opacity-90 transition-opacity"
           >
             Turnos
           </NavLink>
+          <ThemeToggleButton />
         </nav>
 
         {/* Mobile toggle */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          style={{ color: '#5A6B7B' }}
-          className="lg:hidden p-1"
-          aria-label="Abrir menú"
-        >
-          {menuOpen ? <X size={26} /> : <Menu size={26} />}
-        </button>
+        <div className="lg:hidden flex items-center gap-3">
+          <ThemeToggleButton />
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            style={{ color: '#5A6B7B' }}
+            className="p-1"
+            aria-label="Abrir menú"
+          >
+            {menuOpen ? <X size={26} /> : <Menu size={26} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
       {menuOpen && (
         <div
-          style={{ backgroundColor: 'rgba(255,255,255,0.98)', borderTop: '1px solid #e8f8f4' }}
+          style={{ backgroundColor: 'rgba(255,255,255,0.98)', borderTop: '1px solid var(--wash-2)' }}
           className="lg:hidden px-6 pb-6 flex flex-col gap-4"
         >
           {links.map(({ to, label }) => (
@@ -100,7 +105,7 @@ export default function Navbar() {
               end={to === '/'}
               onClick={() => setMenuOpen(false)}
               style={({ isActive }) => ({
-                color: isActive ? '#4DC9B0' : '#5A6B7B',
+                color: isActive ? 'var(--color-primary)' : '#5A6B7B',
                 fontFamily: "'Nunito', sans-serif",
               })}
               className="text-base py-2 border-b border-gray-100"
@@ -111,7 +116,7 @@ export default function Navbar() {
           <NavLink
             to="/contacto"
             onClick={() => setMenuOpen(false)}
-            style={{ backgroundColor: '#4DC9B0', fontFamily: "'Nunito', sans-serif" }}
+            style={{ backgroundColor: 'var(--color-primary)', fontFamily: "'Nunito', sans-serif" }}
             className="text-white text-center font-semibold px-5 py-3 rounded-full"
           >
             Solicitar Turno
